@@ -1,31 +1,29 @@
 body {
     font-family: 'Ubuntu', sans-serif;
+    text-align: center;
 }
 
-#title {
-    background-color: #FF4C68;
-    color: white;
-}
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
-    line-height: 1.5;
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 23px;
-    line-height: 1.5;
-}
-
-h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 23px;
 }
 
 p {
     color: #8F8F8F;
+}
+
+/* TITLE SECTION */
+
+#title {
+    background-color: #FF4C68;
+    color: white;
+    text-align: left;
+}
+
+.big-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    line-height: 1.5;
 }
 
 .container-fluid {
@@ -47,7 +45,7 @@ p {
 
 
 
-/* Navigation Bar */
+/* NAVIGATION BAR */
 
 .navbar {
     padding: 0 0 70px;
@@ -72,6 +70,10 @@ p {
 
 /* FEATURE BOX */
 
+.feature-title {
+    font-size: 25px;
+}
+
 #features {
     background-color: #fff;
     padding: 7% 15%;
@@ -80,7 +82,6 @@ p {
 
 
 .feature-box {
-    text-align: center;
     padding: 4.5%;
 }
 
@@ -94,11 +95,16 @@ p {
 }
 
 
-/* testimonials */
+/* TESTIMONIALS */
+
+.testimonial-heading {
+    font-size: 48px;
+    line-height: 1.5;
+}
+
 #testimonials {
     background-color: #EF8172;
     color: #fff;
-    text-align: center;
 }
 
 .carousel-item {
@@ -118,7 +124,6 @@ p {
 
 #press {
     background-color: #EF8172;
-    text-align: center;
     padding-bottom: 3%;
 }
 
@@ -129,7 +134,16 @@ p {
 
 
 
-/* pricing Section */
+/* PRICING SECTION */
+
+.section-heading {
+    font-size: 50px;
+    line-height: 1.5;
+}
+
+.price-text {
+    line-height: 1.5;
+}
 
 .pricing-column {
     padding: 3% 2%;
@@ -137,35 +151,29 @@ p {
 
 #pricing {
     padding: 100px;
-    text-align: center;
 }
 
-/* call to action */
+/* CALL TO ACTION */
 
 #cta {
     background-color: #FF4C68;
     color: #fff;
     padding: 7% 15%;
-    text-align: center;
-}
-
-.cta-heading {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
-    line-height: 1.5;
 
 }
 
-/* Footer Section */
+/* FOOTER SECTION */
 
 #footer {
     padding: 2% 20%;
-    text-align: center;
 }
 
 .social-icon {
     margin: 20px 10px;
 }
+
+
+/* RESPONSIVE TO DEVICES */
 
 
 @media (max-width: 1028px) {
