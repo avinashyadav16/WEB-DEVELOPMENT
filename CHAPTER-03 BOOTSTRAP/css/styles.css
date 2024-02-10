@@ -1,0 +1,181 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#title {
+    background-color: #FF4C68;
+    color: white;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    line-height: 1.5;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+}
+
+p {
+    color: #8F8F8F;
+}
+
+.container-fluid {
+    padding: 2% 15%;
+}
+
+.btn-download {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 5% 3% 5% 0;
+
+}
+
+.tindog-img {
+    position: absolute;
+    right: 30%;
+    transform: rotate(25deg);
+    width: 60%;
+}
+
+
+
+/* Navigation Bar */
+
+.navbar {
+    padding: 0 0 70px;
+}
+
+.navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    font-size: 20px;
+    font-family: 'Montserrat-light', sans-serif;
+}
+
+
+
+/* FEATURE BOX */
+
+#features {
+    background-color: #fff;
+    padding: 7% 15%;
+    position: relative;
+}
+
+
+.feature-box {
+    text-align: center;
+    padding: 4.5%;
+}
+
+.icon {
+    color: #EF8172;
+    margin-bottom: 16px;
+}
+
+.icon :hover {
+    color: #FF4C68;
+}
+
+
+/* testimonials */
+#testimonials {
+    background-color: #EF8172;
+    color: #fff;
+    text-align: center;
+}
+
+.carousel-item {
+    padding: 3% 15%;
+}
+
+.testimonial-image {
+    width: 10%;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.carousel-inner h2 {
+    font-size: 45px;
+}
+
+
+#press {
+    background-color: #EF8172;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.press-logo {
+    width: 15%;
+    margin: 20px 20px 50px;
+}
+
+
+
+/* pricing Section */
+
+.pricing-column {
+    padding: 3% 2%;
+}
+
+#pricing {
+    padding: 100px;
+    text-align: center;
+}
+
+/* call to action */
+
+#cta {
+    background-color: #FF4C68;
+    color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.cta-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    line-height: 1.5;
+
+}
+
+/* Footer Section */
+
+#footer {
+    padding: 2% 20%;
+    text-align: center;
+}
+
+.social-icon {
+    margin: 20px 10px;
+}
+
+
+@media (max-width: 1028px) {
+    .tindog-img {
+        position: static;
+        transform: rotate(0);
+    }
+
+    #title {
+        text-align: center;
+
+    }
+}
