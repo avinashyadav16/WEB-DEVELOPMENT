@@ -2,16 +2,13 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let [counter, setNewCounter] = useState(0);
+  const [counter, setNewCounter] = useState(0);
 
   const increaseValue = () => {
     setNewCounter(counter + 1);
 
     /*
-    setNewCounter(prevCounter => prevCounter + 1);
-    setNewCounter(prevCounter => prevCounter + 1);
-    setNewCounter(prevCounter => prevCounter + 1);
-    setNewCounter(prevCounter => prevCounter + 1);
+    setNewCounter(prevCounter => prevCounter + 4);
     */
   };
 
