@@ -16,15 +16,33 @@ const express = require('express');
 const app = express();
 
 // Define the port number on which the server will listen
-const port = 3000
+const port = process.env.PORT || 3000
 
 // Set up a route for handling GET requests to the root URL '/'
 app.get('/', (req, res) => {
     // Send a response of 'Initialized HTTP Server!' to clients accessing the root URL
-    res.send('Initialized HTTP Server!');
+    res.send('Initialized The HTTP Server!');
 })
 
 // Start the HTTP server, listening on the specified port
 app.listen(port, () => {
-    console.log(`App Listening on Port ${port}`);
+    console.log(`App Listening at Port ${port}`);
 })
+
+
+
+app.post('/addNumbers', (req, res) => {
+
+    console.log(req.headers)
+
+    let num1 = 10;
+    let num2 = 20;
+
+    if (!num1 || !num2) {
+        return res.status(400).send({ error: "Missing parameters" });
+    }
+
+    let result = parseInt(num1) + parseInt(num2);
+
+    res.send({ result });
+});
