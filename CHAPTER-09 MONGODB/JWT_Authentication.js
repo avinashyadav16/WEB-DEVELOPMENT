@@ -1,11 +1,11 @@
-const express = require("express");
 const jwt = require("jsonwebtoken");
 const jwtPassword = "123456";
 
+
+
+const express = require("express");
 const app = express();
-
 app.use(express.json());
-
 const port = 3000;
 
 
@@ -58,9 +58,6 @@ function userExists(username, password) {
 //     // Check if any user in ALL_USERS matches the provided username and password
 //     return ALL_USERS.map(user => user.username === username && user.password === password).includes(true);
 // }
-
-
-
 
 
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2%;
+
+            background-color: lightsteelblue;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid green;
+            box-shadow: 2px 2px 1px green;
+        }
+
+        button:hover {
+            background-color: lightcyan;
+            font-weight: bold;
+        }
+
+        .card {
+            background-color: whitesmoke;
+            margin-top: 10px;
+            width: 400px;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px steelblue;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- Get the list of 10 person from the backend API and display it on the screen:-->
+
+    <div class="card">
+        <button onclick="getAnimalData()">Get Animal Data</button>
+
+    </div>
+
+
+
+
+    <script>
+
+        function getAnimalData() {
+            fetch('https://fakerapi.it/api/v1/persons')
+                .then((response) => {
+                    response.json()
+                        .then((finalData) => {
+                            console.log(finalData);
+                        })
+                })
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
