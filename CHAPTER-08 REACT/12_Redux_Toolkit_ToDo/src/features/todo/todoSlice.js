@@ -1,5 +1,4 @@
 
-
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 
 
@@ -51,9 +50,6 @@ export const todoSlice = createSlice({
     }
 })
 
-
 export const { addTodo, removeTodo, updateTodo, deleteTodo } = todoSlice.actions
 
 export default todoSlice.reducer
-
-
