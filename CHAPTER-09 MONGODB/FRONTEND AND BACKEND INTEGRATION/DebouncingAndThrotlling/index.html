@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+
+    <style>
+        body {
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: slategray;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 10px;
+            width: 350px;
+            height: 200px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            margin: 8px auto;
+        }
+
+        button {
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card-container">
+
+        <div class="card backend-card">
+            <h3>Backend Sum Calculation Using Debouncing</h3>
+
+            <div class="input-container">
+                <label for="num1">Number 1: </label>
+                <input oninput="debounceBackendSum()" type="number" id="num1" required>
+            </div>
+
+            <div class="input-container">
+                <label for="num2">Number 2: </label>
+                <input oninput="debounceBackendSum()" type="number" id="num2" required>
+            </div>
+
+            <p id="backend-result"></p>
+
+        </div>
+    </div>
+
+    <script>
+
+        // Debouncing Concept:
+        // When the user finishes typing, only then we perform an action.
+        // Delay the call to backendSum untill there is no more input from the user for 100ms.
+
+        let timer;
+        function debounceBackendSum() {
+
+            // In the given time slot if the  user types again, clear the previous timeout and start a new one.
+            clearTimeout(timer);
+
+            timer = setTimeout(() => {
+                backendSum()
+            }, 1000);
+
+        }
+
+        async function backendSum() {
+            const num1Value = parseInt(document.getElementById("num1").value);
+            const num2Value = parseInt(document.getElementById("num2").value);
+
+            const response = await fetch("http://localhost:3000/sum?a=" + num1Value + "&b=" + num2Value);
+
+            const data = await response.json();
+            const sum = data.sum;
+
+            document.getElementById("backend-result").innerHTML = 'Server says the sum is: ' + sum;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculation From Backend</title>
+
+    <style>
+        body {
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: slategray;
+            padding: 70px 60px;
+            border-radius: 20px;
+            margin-top: 5px;
+            width: 350px;
+            height: 250px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px auto;
+        }
+
+        button {
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card frontend-card">
+            <h3>Calculate S.I. From Backend</h3>
+
+            <div class="input-container">
+                <label>Principle: </label>
+                <input type="number" id="pAmt" required>
+            </div>
+
+            <div class="input-container">
+                <label>Rate: </label>
+                <input type="number" id="rate" required>
+            </div>
+
+            <div class="input-container">
+                <label>Time: </label>
+                <input type="number" id="time" required>
+            </div>
+
+            <button onclick="calculateSI()">Calculate S.I.</button>
+            <p id="simpleInterestResult"></p>
+            <p id="amountResult"></p>
+
+        </div>
+    </div>
+
+    <script>
+
+        async function calculateSI() {
+            let pAmt = parseFloat(document.getElementById("pAmt").value);
+            let rate = parseFloat(document.getElementById("rate").value);
+            let time = parseFloat(document.getElementById("time").value);
+
+            const response = await fetch("http://localhost:3000/interest?p=" + pAmt + "&r=" + rate + "&t=" + time);
+
+            const data = await response.json();
+            const totalAmount = data.total;
+            const simpleInterest = data.interest;
+
+            document.getElementById("simpleInterestResult").innerHTML = 'Server says the Simple Interest is: ' + simpleInterest;
+            document.getElementById("amountResult").innerHTML = 'Server says the Total Amount is: ' + totalAmount;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

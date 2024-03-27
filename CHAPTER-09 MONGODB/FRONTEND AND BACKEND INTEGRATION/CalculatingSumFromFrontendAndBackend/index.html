@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculation By Frontend And Backend</title>
+
+    <style>
+        body {
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: slategray;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 10px;
+            width: 350px;
+            height: 200px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            margin: 8px auto;
+        }
+
+        button {
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card-container">
+        <div class="card frontend-card">
+            <h3>Frontend Calculation</h3>
+
+            <div class="input-container">
+                <label for="f_num1">Number 1: </label>
+                <input type="number" id="f_num1" required>
+            </div>
+
+            <div class="input-container">
+                <label for="f_num2">Number 2: </label>
+                <input type="number" id="f_num2" required>
+            </div>
+
+            <button onclick="frontendSum()">Sum From Frontend</button>
+            <p id="frontend-result"></p>
+
+        </div>
+
+        <div class="card backend-card">
+            <h3>Backend Calculation</h3>
+
+            <div class="input-container">
+                <label for="b_num1">Number 1: </label>
+                <input type="number" id="b_num1" required>
+            </div>
+
+            <div class="input-container">
+                <label for="b_num2">Number 2: </label>
+                <input type="number" id="b_num2" required>
+            </div>
+
+            <button onclick="backendSum()">Sum From Backend</button>
+            <p id="backend-result"></p>
+
+        </div>
+    </div>
+
+    <script>
+
+        // Logic For Sum Calculation on frontend
+        function frontendSum() {
+            let f_num1 = parseInt(document.getElementById("f_num1").value);
+            let f_num2 = parseInt(document.getElementById("f_num2").value);
+            document.getElementById("frontend-result").innerHTML = "The sum is: " + (f_num1 + f_num2);
+        }
+
+
+
+        // Logic For Sum Calculation on backend
+        // Method: 01   Lengthy One
+        /*
+        function backendSum() {
+            let b_num1 = parseInt(document.getElementById("b_num1").value);
+            let b_num2 = parseInt(document.getElementById("b_num2").value);
+
+            fetch("http://localhost:3000/sum?a=" + b_num1 + "&b=" + b_num2)
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log('Response received', data);
+                    document.getElementById("backend-result").innerHTML = 'Server says the sum is: ' + data.sum;
+                })
+                .catch((error) => {
+                    console.log('Error: ', error);
+                });
+        };
+        */
+
+        // Method - 02 Cleaner Way:
+        async function backendSum() {
+            let b_num1 = parseInt(document.getElementById("b_num1").value);
+            let b_num2 = parseInt(document.getElementById("b_num2").value);
+
+            const response = await fetch("http://localhost:3000/sum?a=" + b_num1 + "&b=" + b_num2);
+
+            // const ans = await response.text();
+            // document.getElementById("backend-result").innerHTML = 'Server says the sum is: ' + ans;
+
+            const data = await response.json();
+            const sum = data.sum;
+            document.getElementById("backend-result").innerHTML = 'Server says the sum is: ' + sum;
+
+        }
+
+    </script>
+</body>
+
+</html>
