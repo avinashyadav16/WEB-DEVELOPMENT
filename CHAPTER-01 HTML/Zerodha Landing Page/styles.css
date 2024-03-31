@@ -1,0 +1,61 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 2px 1px 2px #eee;
+}
+
+.nav-bar-logo img {
+    max-width: 30%;
+}
+
+.nav-bar-pages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bar-pages a {
+    color: #666;
+    padding: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-bar-pages a:hover {
+    color: blue;
+}
+
+
+
+.trade-img {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.tag, .tag-line, .button {
+    display: flex;
+    justify-content: center;
+}
+
+.tag {
+    color: #181818;
+    font-size: 20px;
+}
+
+#sign-up {
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: rgb(65, 195, 247);
+    padding: 10px 30px;
+    border: 1px solid rgb(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+#sign-up:hover {
+    color: white;
+    background-color: black;
+}
